@@ -13,9 +13,9 @@ $('#btnSubmit').on('click', function (e) {
     //Append h2 to #main-div 
     $h2.appendTo('#main-div');
     //When mouse is over the h2, change the background-color/border-radius
-    $("#main-div h2").mouseover(function () {
+    $h2.mouseover(function () {
 
-        $(this).css({
+        $h2.css({
             "background-color": "yellow",
             "border-radius": "25px"
         });
@@ -25,28 +25,27 @@ $('#btnSubmit').on('click', function (e) {
     $newLi.appendTo('#list');
     //When the list is clicked, the font color changes
     $newLi.click(function (e) {
-        event.preventDefault();
-
+        
         let r = Math.floor(Math.random() * 256);
         let g = Math.floor(Math.random() * 256);
         let b = Math.floor(Math.random() * 256);
         let rgbCol = `rgb(${r},${g},${b})`
-        $(this).css('color', rgbCol);
 
+        $newLi.css('color', rgbCol);
     })
 
     //when the list is dblclicked, it is removed.
     $newLi.dblclick(function () {
-        $(this).remove();
+
+        $newLi.remove();
     })
 
 })
 
 
-
+$('#btnSubmit').prop('disabled', true);
 
 $('input[type="text"]').keyup(function (e) {
-    event.preventDefault();
 
     if ($(this).val() == '') {
         $('#btnSubmit').prop('disabled', true);
@@ -55,6 +54,7 @@ $('input[type="text"]').keyup(function (e) {
         $('#btnSubmit').prop('disabled', false);
     }
 })
+
 
 
 
